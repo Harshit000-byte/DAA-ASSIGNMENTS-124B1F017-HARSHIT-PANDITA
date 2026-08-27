@@ -1,0 +1,27 @@
+========================================================================
+ Assignment 3: Fractional Knapsack Emergency Relief Supply Distribution
+ Student: Harshit Pandita | PRN: 124B1F017
+========================================================================
+
+Sorted Item Ratios (Greedy Preference Order):
+------------------------------------------------------------------------
+Item Name         Weight (kg)   Utility Value   Ratio (V/W)   Divisible?
+------------------------------------------------------------------------
+Medicine          5.00          50.00           10.00         No (Whole)
+FirstAidKits      8.00          40.00           5.00          No (Whole)
+Food              10.00         30.00           3.00          Yes (Partial)
+EmergencyTents    25.00         60.00           2.40          No (Whole)
+Blankets          12.00         24.00           2.00          Yes (Partial)
+Water             20.00         20.00           1.00          Yes (Partial)
+------------------------------------------------------------------------
+
+Allocation Process for Rescue Boat (Capacity: 17.00 kg):
+------------------------------------------------------------------------
+[FULL SELECTION]  Medicine         Weight used: 5.00   kg | Utility: +50.00  | Rem. Capacity: 12.00 kg
+[FULL SELECTION]  FirstAidKits     Weight used: 8.00   kg | Utility: +40.00  | Rem. Capacity: 4.00 kg
+[PARTIAL SELECT] Food             Weight used: 4.00   kg (40.0%) | Utility: +12.00 | Rem. Capacity: 0.00 kg
+------------------------------------------------------------------------
+
+========================================================
+ Total Utility Value Transported = 102.00
+========================================================
