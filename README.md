@@ -65,4 +65,4 @@ g++ -std=c++11 Assignment_3_Fractional_Knapsack/fractional_knapsack.cpp -o fract
 ---
 
 ## 🔗 GitHub Repository
-[https://github.com/harshitpandita/DAA-Assignments.git](https://github.com/harshitpandita/DAA-Assignments.git)
+[https://github.com/harshitpandita/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git](https://github.com/harshitpandita/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git)
