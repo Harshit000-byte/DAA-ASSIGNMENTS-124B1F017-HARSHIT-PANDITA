@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+    body { font-family: 'Calibri', 'Arial', sans-serif; line-height: 1.6; margin: 40px; color: #1a1a1a; }
+    .header-box { border: 2px solid #003366; padding: 15px; text-align: center; background-color: #f4f7fa; margin-bottom: 20px; }
+    h1 { color: #003366; text-align: center; margin-bottom: 5px; font-size: 24px; }
+    h2 { color: #004080; border-bottom: 2px solid #004080; padding-bottom: 5px; font-size: 18px; margin-top: 25px; }
+    h3 { color: #0055a5; font-size: 15px; margin-top: 15px; }
+    .student-info { background: #eef4fb; padding: 12px 20px; border-left: 5px solid #003366; font-weight: bold; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+    th, td { border: 1px solid #cccccc; padding: 10px; text-align: left; }
+    th { background-color: #003366; color: white; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    pre, code { font-family: 'Consolas', 'Courier New', monospace; background-color: #f0f3f6; border: 1px solid #d1d5da; padding: 10px; border-radius: 4px; display: block; white-space: pre-wrap; font-size: 13px; }
+    .highlight { background-color: #e6f2ff; padding: 8px 12px; border-left: 4px solid #0055a5; margin: 10px 0; }
+</style>
+</head>
+<body>
+
+<div class="header-box">
+    <h3 style="margin:0; color:#003366;">Pimpri-Chinchwad Education Trust's</h3>
+    <h1 style="margin:5px 0; color:#003366;">Pimpri-Chinchwad College of Engineering</h1>
+    <p style="margin:0; font-style:italic;">(An Autonomous Institute)</p>
+    <p style="margin:3px 0; font-size:12px;">Affiliated to Savitribai Phule Pune University (SPPU) | ISO 21001:2018 Certified by TUV</p>
+    <hr style="border: 1px solid #003366;">
+    <h2 style="margin:5px 0; border:none; color:#003366;">Assignment No 2: Quick Sort</h2>
+</div>
+
+<div class="student-info">
+    <p style="margin:3px 0;"><strong>Name:</strong> Harshit Pandita</p>
+    <p style="margin:3px 0;"><strong>PRN:</strong> 124B1F017</p>
+    <p style="margin:3px 0;"><strong>Subject:</strong> Design and Analysis of Algorithms</p>
+    <p style="margin:3px 0;"><strong>Batch:</strong> A1</p>
+</div>
+
+<h2>1. Problem Statement:</h2>
+<p>A popular OTT platform, <strong>StreamFlix</strong>, offers personalized recommendations by sorting movies based on user preferences, such as IMDb rating, release year, or watch time popularity. However, during peak hours, sorting large datasets slows down the system. As a backend engineer, you must:</p>
+<ul>
+    <li>Implement Quicksort to efficiently sort movies based on various user-selected parameters.</li>
+    <li>Handle large datasets containing movies while maintaining fast response times.</li>
+</ul>
+
+<h2>2. Course Objective:</h2>
+<ul>
+    <li>To know the basics of computational complexity of various algorithms.</li>
+    <li>To select appropriate algorithm design strategies to solve real-world problems.</li>
+</ul>
+
+<h2>3. Course Outcome:</h2>
+<ul>
+    <li>Analyze the asymptotic performance of algorithms.</li>
+    <li>Solve computational problems by applying suitable paradigms of Divide and Conquer or Greedy methodologies.</li>
+</ul>
+
+<h2>4. Theory:</h2>
+<p>Quick Sort is an efficient, divide-and-conquer, in-place sorting algorithm. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays according to whether they are less than or greater than the pivot.</p>
+
+<h3>Working of Quick Sort:</h3>
+<ul>
+    <li><strong>Divide:</strong> Select a pivot element from the array.</li>
+    <li><strong>Partition:</strong> Rearrange elements so that all elements smaller than the pivot come before it, and all larger elements come after it.</li>
+    <li><strong>Conquer:</strong> Recursively apply the above steps to the sub-arrays.</li>
+</ul>
+
+<h2>5. Time and Space Complexity:</h2>
+<table>
+    <tr><th>Case</th><th>Time Complexity</th><th>Description</th></tr>
+    <tr><td>Best Case</td><td>O(n log n)</td><td>Balanced partitions</td></tr>
+    <tr><td>Average Case</td><td>O(n log n)</td><td>Typical for random input</td></tr>
+    <tr><td>Worst Case</td><td>O(n<sup>2</sup>)</td><td>When pivot is poorly chosen</td></tr>
+    <tr><td>Space Complexity</td><td>O(n log n)</td><td>For recursive stack calls</td></tr>
+</table>
+
+<h2>6. Algorithm & Pseudocode:</h2>
+<pre>
+ALGORITHM QuickSort(arr, low, high)
+1. if low < high then
+2.     pivotIndex &larr; Partition(arr, low, high)
+3.     QuickSort(arr, low, pivotIndex - 1)
+4.     QuickSort(arr, pivotIndex + 1, high)
+5. end if
+END ALGORITHM
+
+ALGORITHM Partition(arr, low, high)
+1. pivot &larr; arr[high]
+2. i &larr; low - 1
+3. for j &larr; low to high - 1 do
+4.     if arr[j] &le; pivot then
+5.         i &larr; i + 1
+6.         SWAP(arr[i], arr[j])
+7.     end if
+8. end for
+9. SWAP(arr[i + 1], arr[high])
+10. return (i + 1)
+END ALGORITHM
+</pre>
+
+<h2>7. Output (Movies Sorted by IMDb Rating):</h2>
+<pre>
+Movies Sorted by IMDb Rating using Quick Sort:
+------------------------------------------------------------------------
+ID        Title                       Rating    Year    Genre
+------------------------------------------------------------------------
+MOV207    Fast & Furious 9            6.5       2021    Action
+MOV208    Red Notice                  7.3       2021    Action/Comedy
+MOV209    Avatar: The Way of Water    7.6       2022    Sci-Fi/Action
+MOV205    Parasite                    8.5       2019    Thriller/Drama
+MOV210    Spirited Away               8.6       2001    Animation/Fantasy
+MOV202    Inception                   8.7       2010    Sci-Fi/Action
+MOV203    Interstellar                8.7       2014    Sci-Fi/Drama
+MOV204    The Matrix                  8.7       1999    Sci-Fi/Action
+MOV201    The Dark Knight             9.0       2008    Action/Crime
+MOV206    The Shawshank Redemption    9.3       1994    Drama
+------------------------------------------------------------------------
+</pre>
+
+<h2>8. GitHub Repository:</h2>
+<p><a href="https://github.com/Harshit000-byte/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git">https://github.com/Harshit000-byte/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git</a></p>
+
+<h2>9. Conclusion:</h2>
+<p>Quick Sort is an efficient and memory-friendly algorithm ideal for sorting large movie datasets based on user preferences like IMDb rating, release year, or watch time popularity. By utilizing Quick Sort, StreamFlix ensures fast and responsive recommendations during peak traffic.</p>
+
+</body>
+</html>

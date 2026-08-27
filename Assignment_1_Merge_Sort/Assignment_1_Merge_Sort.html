@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+    body { font-family: 'Calibri', 'Arial', sans-serif; line-height: 1.6; margin: 40px; color: #1a1a1a; }
+    .header-box { border: 2px solid #003366; padding: 15px; text-align: center; background-color: #f4f7fa; margin-bottom: 20px; }
+    h1 { color: #003366; text-align: center; margin-bottom: 5px; font-size: 24px; }
+    h2 { color: #004080; border-bottom: 2px solid #004080; padding-bottom: 5px; font-size: 18px; margin-top: 25px; }
+    h3 { color: #0055a5; font-size: 15px; margin-top: 15px; }
+    .student-info { background: #eef4fb; padding: 12px 20px; border-left: 5px solid #003366; font-weight: bold; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+    th, td { border: 1px solid #cccccc; padding: 10px; text-align: left; }
+    th { background-color: #003366; color: white; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    pre, code { font-family: 'Consolas', 'Courier New', monospace; background-color: #f0f3f6; border: 1px solid #d1d5da; padding: 10px; border-radius: 4px; display: block; white-space: pre-wrap; font-size: 13px; }
+    .highlight { background-color: #e6f2ff; padding: 8px 12px; border-left: 4px solid #0055a5; margin: 10px 0; }
+</style>
+</head>
+<body>
+
+<div class="header-box">
+    <h3 style="margin:0; color:#003366;">Pimpri-Chinchwad Education Trust's</h3>
+    <h1 style="margin:5px 0; color:#003366;">Pimpri-Chinchwad College of Engineering</h1>
+    <p style="margin:0; font-style:italic;">(An Autonomous Institute)</p>
+    <p style="margin:3px 0; font-size:12px;">Affiliated to Savitribai Phule Pune University (SPPU) | ISO 21001:2018 Certified by TUV</p>
+    <hr style="border: 1px solid #003366;">
+    <h2 style="margin:5px 0; border:none; color:#003366;">Assignment No 1: Merge Sort</h2>
+</div>
+
+<div class="student-info">
+    <p style="margin:3px 0;"><strong>Name:</strong> Harshit Pandita</p>
+    <p style="margin:3px 0;"><strong>PRN:</strong> 124B1F017</p>
+    <p style="margin:3px 0;"><strong>Subject:</strong> Design and Analysis of Algorithms</p>
+    <p style="margin:3px 0;"><strong>Batch:</strong> A1</p>
+</div>
+
+<h2>1. Topic:</h2>
+<p>Design and implement a sorting algorithm using Merge Sort to efficiently arrange customer orders based on their timestamps. The solution should handle a large dataset (up to 1 million orders) with minimal computational overhead. Additionally, analyze the time complexity and compare it with traditional sorting techniques.</p>
+
+<h2>2. Course Objective:</h2>
+<ul>
+    <li>To know the basics of computational complexity of various algorithms.</li>
+    <li>To select appropriate algorithm design strategies to solve real-world problems.</li>
+</ul>
+
+<h2>3. Course Outcome:</h2>
+<ul>
+    <li>Analyze the asymptotic performance of algorithms.</li>
+    <li>Solve computational problems by applying suitable paradigms of Divide and Conquer or Greedy methodologies.</li>
+</ul>
+
+<h2>4. Theory:</h2>
+<p>Merge sort is a popular sorting algorithm known for its efficiency and stability. It follows the divide and conquer approach. It works by recursively dividing the input array into two halves, recursively sorting the two halves, and finally merging them back together to obtain the sorted array.</p>
+
+<h3>Working of Merge Sort:</h3>
+<ul>
+    <li><strong>Divide:</strong> Keep dividing the list or array into two equal halves again and again, until each part has only one element left.</li>
+    <li><strong>Conquer:</strong> Each subarray is sorted individually using the merge sort algorithm.</li>
+    <li><strong>Merge:</strong> The sorted subarrays are merged back together in sorted order. The process continues until all elements from both subarrays have been merged.</li>
+</ul>
+
+<h3>Complexity Analysis of Merge Sort:</h3>
+<ul>
+    <li><strong>Divide step:</strong> The array is recursively divided into two halves until each subarray has one element. Number of times we can divide an array of size <i>n</i> = log<sub>2</sub>(n) (height of recursion tree).</li>
+    <li><strong>Merge step:</strong> At each level of recursion, all <i>n</i> elements are merged.</li>
+    <li><strong>Total work:</strong> number of levels &times; work per level = log<sub>2</sub>(n) &times; n = O(n log n).</li>
+</ul>
+
+<h3>Time Complexity:</h3>
+<ul>
+    <li><strong>Best Case Time Complexity:</strong> O(n log n)</li>
+    <li><strong>Average Case Time Complexity:</strong> O(n log n)</li>
+    <li><strong>Worst Case Time Complexity:</strong> O(n log n)</li>
+</ul>
+
+<h3>Space Complexity:</h3>
+<p>In merge sort, all elements are copied into an auxiliary array of size <i>N</i>. Hence, the space complexity for Merge Sort is O(N).</p>
+
+<h2>5. Merge Sort Algorithm & Pseudocode:</h2>
+<pre>
+ALGORITHM MergeSort(A, low, high)
+1. if low >= high then
+2.     return
+3. end if
+4. mid &larr; (low + high) / 2
+5. MergeSort(A, low, mid)
+6. MergeSort(A, mid + 1, high)
+7. Merge(A, low, mid, high)
+END ALGORITHM
+
+ALGORITHM Merge(A, low, mid, high)
+1. Create an empty array TEMP
+2. i &larr; low
+3. j &larr; mid + 1
+4. while i &le; mid AND j &le; high do
+5.     if A[i] &le; A[j] then
+6.         Add A[i] to TEMP
+7.         i &larr; i + 1
+8.     else
+9.         Add A[j] to TEMP
+10.        j &larr; j + 1
+11.    end if
+12. end while
+13. while i &le; mid do
+14.     Add A[i] to TEMP
+15.     i &larr; i + 1
+16. end while
+17. while j &le; high do
+18.     Add A[j] to TEMP
+19.     j &larr; j + 1
+20. end while
+21. Copy all elements of TEMP back into A[low...high]
+END ALGORITHM
+</pre>
+
+<h2>6. Example & Dataset:</h2>
+<p>Input Customer Order Timestamps (from CSV dataset):</p>
+<p><code>[12:30, 09:15, 14:45, 10:00, 11:20, 08:45, 16:10, 13:05]</code></p>
+
+<div class="highlight">
+    <p><strong>Divide Phase:</strong> Split into sub-lists recursively until single-element arrays are formed.</p>
+    <p><strong>Merge Phase:</strong> Compare and merge sorted sub-lists step by step.</p>
+</div>
+
+<h2>7. Output:</h2>
+<pre>
+Orders sorted by timestamp &rarr;
+[08:45, 09:15, 10:00, 11:20, 12:30, 13:05, 14:45, 16:10]
+</pre>
+
+<h2>8. GitHub Repository:</h2>
+<p><a href="https://github.com/Harshit000-byte/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git">https://github.com/Harshit000-byte/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git</a></p>
+
+<h2>9. Conclusion:</h2>
+<p>Merge Sort is a highly efficient and stable sorting algorithm that organizes customer orders based on their timestamps with O(n log n) complexity. Compared to traditional algorithms like Bubble Sort or Insertion Sort, Merge Sort can easily handle large datasets without performance degradation, making it ideal for e-commerce, order tracking, and real-time scheduling systems.</p>
+
+</body>
+</html>

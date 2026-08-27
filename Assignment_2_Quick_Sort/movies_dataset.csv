@@ -1,0 +1,11 @@
+Movie_ID,Title,IMDb_Rating,Release_Year,Watch_Time_Mins,Genre
+MOV201,The Dark Knight,9.0,2008,152,Action/Crime
+MOV202,Inception,8.7,2010,148,Sci-Fi/Action
+MOV203,Interstellar,8.7,2014,169,Sci-Fi/Drama
+MOV204,The Matrix,8.7,1999,136,Sci-Fi/Action
+MOV205,Parasite,8.5,2019,132,Thriller/Drama
+MOV206,The Shawshank Redemption,9.3,1994,142,Drama
+MOV207,Fast & Furious 9,6.5,2021,143,Action
+MOV208,Red Notice,7.3,2021,118,Action/Comedy
+MOV209,Avatar: The Way of Water,7.6,2022,192,Sci-Fi/Action
+MOV210,Spirited Away,8.6,2001,125,Animation/Fantasy
