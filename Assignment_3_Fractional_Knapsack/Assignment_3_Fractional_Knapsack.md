@@ -201,7 +201,7 @@ $$\mathbf{Total\ Utility = 82}$$
 ---
 
 ### 10. GitHub Repository:
-[https://github.com/harshitpandita/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git](https://github.com/harshitpandita/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git)
+[https://github.com/Harshit000-byte/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git](https://github.com/Harshit000-byte/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git)
 
 ---
 
