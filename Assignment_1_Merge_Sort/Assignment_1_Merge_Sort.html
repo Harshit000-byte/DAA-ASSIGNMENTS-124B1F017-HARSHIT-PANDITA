@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+    body { font-family: 'Calibri', 'Arial', sans-serif; line-height: 1.6; margin: 40px; color: #1a1a1a; }
+    .header-box { border: 2px solid #003366; padding: 15px; text-align: center; background-color: #f4f7fa; margin-bottom: 20px; }
+    h1 { color: #003366; text-align: center; margin-bottom: 5px; font-size: 24px; }
+    h2 { color: #004080; border-bottom: 2px solid #004080; padding-bottom: 5px; font-size: 18px; margin-top: 25px; }
+    h3 { color: #0055a5; font-size: 15px; margin-top: 15px; }
+    .student-info { background: #eef4fb; padding: 12px 20px; border-left: 5px solid #003366; font-weight: bold; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+    th, td { border: 1px solid #cccccc; padding: 10px; text-align: left; }
+    th { background-color: #003366; color: white; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    pre, code { font-family: 'Consolas', 'Courier New', monospace; background-color: #f0f3f6; border: 1px solid #d1d5da; padding: 10px; border-radius: 4px; display: block; white-space: pre-wrap; font-size: 13px; }
+    .highlight { background-color: #e6f2ff; padding: 8px 12px; border-left: 4px solid #0055a5; margin: 10px 0; }
+    .github-link { background: #f0f4f8; padding: 10px; border: 1px solid #003366; margin-top: 15px; font-weight: bold; word-break: break-all; }
+</style>
+</head>
+<body>
+
+<div class="header-box">
+    <h3 style="margin:0; color:#003366;">Pimpri-Chinchwad Education Trust's</h3>
+    <h1 style="margin:5px 0; color:#003366;">Pimpri-Chinchwad College of Engineering</h1>
+    <p style="margin:0; font-style:italic;">(An Autonomous Institute)</p>
+    <p style="margin:3px 0; font-size:12px;">Affiliated to Savitribai Phule Pune University (SPPU) | ISO 21001:2018 Certified by TUV</p>
+    <hr style="border: 1px solid #003366;">
+    <h2 style="margin:5px 0; border:none; color:#003366;">Assignment No. 1: Merge Sort</h2>
+</div>
+
+<div class="student-info">
+    <p style="margin:3px 0;"><strong>Name:</strong> Harshit Pandita</p>
+    <p style="margin:3px 0;"><strong>PRN:</strong> 124B1F017</p>
+    <p style="margin:3px 0;"><strong>Subject:</strong> Design and Analysis of Algorithms</p>
+    <p style="margin:3px 0;"><strong>Batch:</strong> A1</p>
+</div>
+
+<h2>1. Problem Statement:</h2>
+<p>Design and implement a sorting algorithm using Merge Sort to efficiently arrange customer orders based on their timestamps. The solution should handle a large dataset (up to 1 million orders) with minimal computational overhead. Additionally, analyze the time complexity and compare it with traditional sorting techniques.</p>
+
+<h2>2. Course Objective:</h2>
+<p>2.1. To know the basics of computational complexity of various algorithms.<br>
+2.2. To select appropriate algorithm design strategies to solve real-world problems.</p>
+
+<h2>3. Course Outcome:</h2>
+<p>3.1. Analyze the asymptotic performance of algorithms<br>
+3.2. Solve computational problems by applying suitable paradigms of Divide and Conquer or Greedy methodologies</p>
+
+<h2>Theory:</h2>
+<p>Merge sort is a popular sorting algorithm known for its efficiency and stability. It follows the divide and conquer approach. It works by recursively dividing the input array into two halves, recursively sorting the two halves and finally merging them back together to obtain the sorted array.</p>
+
+<h3>Working of Merge Sort:</h3>
+<ul>
+    <li><strong>Divide:</strong> Keep dividing the list or array into two equal halves again and again, until each part has only one element left.</li>
+    <li><strong>Conquer:</strong> Each sub array is sorted individually using the merge sort algorithm.</li>
+    <li><strong>Merge:</strong> The sorted sub arrays are merged back together in sorted order. The process continues until all elements from both sub arrays have been merged.</li>
+</ul>
+
+<h3>Complexity Analysis of Merge Sort:</h3>
+<p><strong>Divide step:</strong> The array is recursively divided into two halves until each subarray has one element. Number of times we can divide an array of size n = log<sub>2</sub>(n) (height of recursion tree).<br>
+<strong>Merge step:</strong> At each level of recursion, all n elements are merged.<br>
+<strong>Total work</strong> = number of levels &times; work per level = log<sub>2</sub>(n) &times; n = O(n log n).</p>
+
+<h3>Analysis of Merge Sort Time Complexity:</h3>
+<p><strong>Best Case Time Complexity:</strong> Even if the array is already sorted, Merge Sort still divides and merges every element. Merging sorted sub arrays still requires scanning through all elements. <strong>Best Case = O(n log n)</strong></p>
+<p><strong>Average Case Time Complexity:</strong> For randomly arranged data, the algorithm still divides into halves and merges them. On average, the number of comparisons during merging is proportional to n. <strong>Average Case = O(n log n)</strong></p>
+<p><strong>Worst Case Complexity:</strong> Even if the array is sorted in descending order (worst arrangement for comparisons), Merge Sort still performs the same divide-and-merge procedure. Comparisons may be maximum, but still bounded by O(n log n). <strong>Worst Case = O(n log n)</strong></p>
+
+<h3>Analysis of Merge Sort Space Complexity:</h3>
+<p>In merge sort, all elements are copied into an auxiliary array of size N, where N is the number of elements present in the unsorted array. Hence, the space complexity for Merge Sort is O(N).</p>
+
+<h2>Merge Sort Algorithm:</h2>
+<p>Step 1: If it is only one element in the list, consider it already sorted, so return.<br>
+Step 2: Divide the list recursively into two halves until it can’t no more be divided.<br>
+Step 3: Merge the smaller lists into new list in sorted order.</p>
+
+<h2>Pseudo code:</h2>
+<pre>
+procedure mergesort( var a as array )
+if ( n == 1 ) return a
+    var l1 as array = a[0] ... a[n/2]
+    var l2 as array = a[n/2+1] ... a[n]
+    l1 = mergesort( l1 )
+    l2 = mergesort( l2 )
+    return merge( l1, l2 )
+end procedure
+
+procedure merge( var a as array, var b as array )
+    var c as array
+    while ( a and b have elements )
+        if ( a[0] > b[0] )
+            add b[0] to the end of c
+            remove b[0] from b
+        else
+            add a[0] to the end of c
+            remove a[0] from a
+        end if
+    end while
+    while ( a has elements )
+        add a[0] to the end of c
+        remove a[0] from a
+    end while
+    while ( b has elements )
+        add b[0] to the end of c
+        remove b[0] from b
+    end while
+    return c
+end procedure
+</pre>
+
+<h2>5. Flow Diagram:</h2>
+<pre>
+                     +-----------------------+
+                     |         START         |
+                     +-----------+-----------+
+                                 |
+                     +-----------v-----------+
+                     | Input Array of        |
+                     | Customer Orders       |
+                     | (With Timestamps)     |
+                     +-----------+-----------+
+                                 |
+                     +-----------v-----------+
+                     | Array has 1 element?  |
+                     +-----+-----------+-----+
+                           |           |
+                      Yes  |           | No
+                           v           v
+            +--------------+-------+ +-+--------------------+
+            | Return Array         | | Divide Array in 2    |
+            | (Already Sorted)     | | Halves               |
+            +----------------------+ +---------+------------+
+                                               |
+                                     +---------v------------+
+                                     | Recursively Call     |
+                                     | Merge Sort Function  |
+                                     +---------+------------+
+                                               |
+                                     +---------v------------+
+                                     | Is Left[i] <=        |
+                                     | Right[j]?            |
+                                     +----+------------+----+
+                                          |            |
+                                     Yes  v            v  No
+                            +-------------+---+    +---+--------------+
+                            | Copy Left[i] to |    | Copy Right[j] to |
+                            | Result Array    |    | Result Array     |
+                            +-------------+---+    +---+--------------+
+                                          |            |
+                                          +-----+------+
+                                                |
+                                     +----------v-----------+
+                                     | Repeat until all     |
+                                     | elements merged      |
+                                     +----------+-----------+
+                                                |
+                                     +----------v-----------+
+                                     | Output Sorted        |
+                                     | Customer Orders      |
+                                     +----------+-----------+
+                                                |
+                                     +----------v-----------+
+                                     |          END         |
+                                     +----------------------+
+</pre>
+
+<h2>6. Example:</h2>
+<p>Customer order timestamps:<br>
+<code>[12:30, 09:15, 14:45, 10:00]</code></p>
+
+<h3>Step 1: Divide</h3>
+<ul>
+    <li>Split into halves &rarr; [12:30, 09:15] and [14:45, 10:00]</li>
+    <li>Further split &rarr; [12:30], [09:15], [14:45], [10:00]</li>
+</ul>
+
+<h3>Step 2: Merge & Sort</h3>
+<ul>
+    <li>Merge [12:30] and [09:15] &rarr; [09:15, 12:30]</li>
+    <li>Merge [14:45] and [10:00] &rarr; [10:00, 14:45]</li>
+    <li>Merge final two halves &rarr; [09:15, 10:00, 12:30, 14:45]</li>
+</ul>
+
+<h2>Output:</h2>
+<p>Orders sorted by timestamp &rarr; <code>[09:15, 10:00, 12:30, 14:45]</code></p>
+
+<h2>Conclusion:</h2>
+<p>Merge Sort is a highly efficient and stable sorting algorithm that organizes customer orders based on their timestamps with O(n log n) complexity. Compared to traditional algorithms like Bubble Sort or Insertion Sort, which are too slow for large inputs, Merge Sort can easily handle up to 1 million records without performance issues. Its ability to maintain the correct order and scalability makes it an excellent choice for real-world applications such as e-commerce, order tracking, and scheduling systems.</p>
+
+<div class="github-link">
+    GitHub Repository: <a href="https://github.com/Harshit000-byte/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git">https://github.com/Harshit000-byte/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git</a>
+</div>
+
+</body>
+</html>

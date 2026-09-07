@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+    body { font-family: 'Calibri', 'Arial', sans-serif; line-height: 1.6; margin: 40px; color: #1a1a1a; }
+    .header-box { border: 2px solid #003366; padding: 15px; text-align: center; background-color: #f4f7fa; margin-bottom: 20px; }
+    h1 { color: #003366; text-align: center; margin-bottom: 5px; font-size: 24px; }
+    h2 { color: #004080; border-bottom: 2px solid #004080; padding-bottom: 5px; font-size: 18px; margin-top: 25px; }
+    h3 { color: #0055a5; font-size: 15px; margin-top: 15px; }
+    .student-info { background: #eef4fb; padding: 12px 20px; border-left: 5px solid #003366; font-weight: bold; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+    th, td { border: 1px solid #cccccc; padding: 10px; text-align: left; }
+    th { background-color: #003366; color: white; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    pre, code { font-family: 'Consolas', 'Courier New', monospace; background-color: #f0f3f6; border: 1px solid #d1d5da; padding: 10px; border-radius: 4px; display: block; white-space: pre-wrap; font-size: 13px; }
+    .highlight { background-color: #e6f2ff; padding: 8px 12px; border-left: 4px solid #0055a5; margin: 10px 0; }
+    .github-link { background: #f0f4f8; padding: 10px; border: 1px solid #003366; margin-top: 15px; font-weight: bold; word-break: break-all; }
+</style>
+</head>
+<body>
+
+<div class="header-box">
+    <h3 style="margin:0; color:#003366;">Pimpri-Chinchwad Education Trust's</h3>
+    <h1 style="margin:5px 0; color:#003366;">Pimpri-Chinchwad College of Engineering</h1>
+    <p style="margin:0; font-style:italic;">(An Autonomous Institute)</p>
+    <p style="margin:3px 0; font-size:12px;">Affiliated to Savitribai Phule Pune University (SPPU) | ISO 21001:2018 Certified by TUV</p>
+    <hr style="border: 1px solid #003366;">
+    <h2 style="margin:5px 0; border:none; color:#003366;">Assignment No. 2: Quick Sort</h2>
+</div>
+
+<div class="student-info">
+    <p style="margin:3px 0;"><strong>Name:</strong> Harshit Pandita</p>
+    <p style="margin:3px 0;"><strong>PRN:</strong> 124B1F017</p>
+    <p style="margin:3px 0;"><strong>Subject:</strong> Design and Analysis of Algorithms</p>
+    <p style="margin:3px 0;"><strong>Batch:</strong> A1</p>
+</div>
+
+<h2>1. Problem Statement:</h2>
+<p>Movie Recommendation System Optimization A popular OTT platform, StreamFlix, offers personalized recommendations by sorting movies based on user preferences, such as IMDB rating, release year, or watch time popularity. However, during peak hours, sorting large datasets slows down the system. As a backend engineer, you must:</p>
+<ul>
+    <li>Implement Quick sort to efficiently sort movies based on various user-selected parameters.</li>
+    <li>Handle large datasets containing of movies while maintaining fast response times.</li>
+</ul>
+
+<h2>2. Course Objective:</h2>
+<p>2.1 To know the basics of computational complexity of various algorithms.<br>
+2.2 To select appropriate algorithm design strategies to solve real-world problems.</p>
+
+<h2>3. Course Outcome:</h2>
+<p>3.1 Analyze the asymptotic performance of algorithms.<br>
+3.2 Solve computational problems by applying suitable paradigms of Divide and Conquer or Greedy methodologies.</p>
+
+<h2>4. Theory:</h2>
+<p>Quick Sort is one of the most widely used sorting algorithms because of its efficiency, simplicity in concept, and adaptability. It is based on the divide-and-conquer paradigm, which makes it highly effective in sorting large datasets. Unlike some other sorting algorithms, Quick Sort is an in-place algorithm, meaning it requires very little extra memory, and it avoids the overhead of merging, as seen in Merge Sort.</p>
+
+<p>The working of Quick Sort can be explained in three major steps:</p>
+<ul>
+    <li><strong>Divide:</strong> A pivot element is selected from the array. The choice of pivot can significantly affect performance. Common strategies include choosing the last element, the first element, a random element, or using the median-of-three method (the median of the first, middle, and last elements).</li>
+    <li><strong>Partition:</strong> The array is rearranged so that all elements smaller than the pivot are placed to its left and all elements larger are placed to its right. The pivot itself is placed in its correct sorted position.</li>
+    <li><strong>Conquer:</strong> The same process is applied recursively to the left and right subarrays created by the partition step.</li>
+</ul>
+
+<p>Unlike some other divide-and-conquer algorithms, Quick Sort does not require a separate combine step. Once all recursive calls complete, the array is already sorted due to the placement of pivots at each stage.</p>
+<p>The efficiency of Quick Sort lies in its average-case time complexity of O(n log n), which makes it suitable for a wide range of applications. However, in the worst case—when the pivot selection is poor and the partitioning is unbalanced—its performance can degrade to O(n²). To minimize the likelihood of this scenario, several optimizations are often applied:</p>
+
+<p>Random Pivot Selection: Choosing a random pivot reduces the chance of encountering consistently unbalanced partitions.</p>
+<ul>
+    <li><strong>Median-of-Three Method:</strong> Using the median of the first, middle, and last elements as the pivot leads to more balanced partitions in practice.</li>
+    <li><strong>Tail Recursion Elimination:</strong> By converting the tail-recursive calls into iterative steps, the recursion depth can be reduced, improving space efficiency.</li>
+    <li><strong>Hybrid Approach:</strong> For small subarrays, switching from QuickSort to a simpler algorithm like Insertion Sort can improve performance since the overhead of recursion becomes significant for small input sizes.</li>
+</ul>
+
+<h2>5. Time and Space Complexity</h2>
+<table>
+    <tr><th>Case</th><th>Time Complexity</th><th>Description</th></tr>
+    <tr><td>Best Case</td><td>O(n log n)</td><td>Balanced partitions</td></tr>
+    <tr><td>Average Case</td><td>O(n log n)</td><td>Typical for random input</td></tr>
+    <tr><td>Worst Case</td><td>O(n²)</td><td>When pivot is poorly chosen</td></tr>
+    <tr><td>Space Complexity</td><td>O(n log n)</td><td>For recursive stack calls</td></tr>
+</table>
+
+<h2>Quick Sort Algorithm</h2>
+<p>i. Start with an unsorted array.<br>
+ii. Choose a pivot element (last element, first element, random, or median-of-three).<br>
+iii. Partition the array so that:<br>
+iv. All elements smaller than the pivot are placed before it.<br>
+v. All elements greater than the pivot are placed after it.<br>
+vi. Place the pivot in its correct sorted position.<br>
+vii. Recursively apply QuickSort on the left subarray and right subarray.<br>
+viii. Continue until subarrays have size 0 or 1 (base case).<br>
+ix. End when the entire array is sorted.</p>
+
+<h2>Pseudo Code for Quick Sort</h2>
+<pre>
+Procedure QUICK_SORT(arr, low, high):
+if low < high then
+    pivotIndex &larr; PARTITION(arr, low, high)
+    // Recursively sort elements before and after partition
+    QUICK_SORT(arr, low, pivotIndex - 1)
+    QUICK_SORT(arr, pivotIndex + 1, high)
+end if
+End Procedure
+
+Procedure PARTITION(arr, low, high):
+pivot &larr; arr[high] // choose last element as pivot
+i &larr; low - 1 // index of smaller element
+for j &larr; low to high - 1 do
+    if arr[j] &le; pivot then
+        i &larr; i + 1
+        SWAP(arr[i], arr[j])
+    end if
+end for
+SWAP(arr[i + 1], arr[high]) // place pivot at correct position
+return (i + 1) // pivot index
+End Procedure
+</pre>
+
+<h2>Example to clearly see how Quick Sort works:</h2>
+<p><strong>Example Array:</strong> [3, 1, 4, 2]</p>
+<p><strong>Step 1: Choose pivot</strong><br>
+We choose the last element &rarr; pivot = 2.</p>
+<p><strong>Step 2: Partition around pivot</strong><br>
+Compare each element with 2:<br>
+3 > 2 &rarr; goes to right<br>
+1 < 2 &rarr; goes to left<br>
+4 > 2 &rarr; goes to right<br>
+After partition: [1, 2, 4, 3]<br>
+Pivot 2 is in its correct sorted position.</p>
+<p><strong>Step 3: Recursive calls</strong><br>
+Left subarray: [1] &rarr; already sorted<br>
+Right subarray: [4, 3]</p>
+<p><strong>Step 4: Quick Sort on [4, 3]</strong><br>
+Pivot = 3<br>
+Compare: 4 > 3 &rarr; goes right<br>
+After partition: [3, 4]</p>
+<p><strong>Final Sorted Array</strong><br>
+Combine results: [1, 2, 3, 4]</p>
+
+<h2>Flow Diagram:</h2>
+<pre>
+                     +-----------------------+
+                     |         Start         |
+                     +-----------+-----------+
+                                 |
+                     +-----------v-----------+
+                     | Output header &       |
+                     | prompt user for input |
+                     +-----------+-----------+
+                                 |
+                     +-----------v-----------+
+                     | Retrieve input from   |
+                     | user into array       |
+                     +-----------+-----------+
+                                 |
+                     +-----------v-----------+
+                     | Print unsorted array  |
+                     +-----------+-----------+
+                                 |
+                     +-----------v-----------+
+                     | Split the array into  |
+                     | 2 sorted batches      |
+                     | using pivot           |
+                     +-----------+-----------+
+                                 |
+                     +-----------v-----------+
+                     | Batch size == 1?      |
+                     +-----+-----------+-----+
+                           |           |
+                      Yes  |           | No
+                           v           v
+            +--------------+-------+ +-+--------------------+
+            | Output sorted array   | | Sort each partition |
+            +--------------+-------+ | set recursively using|
+                           |         | the quick sort       |
+                           |         | function.            |
+                           |         +----------+-----------+
+                           |                    |
+                           +--------------------+
+                                 |
+                     +-----------v-----------+
+                     |          End          |
+                     +-----------------------+
+</pre>
+
+<h2>Output:</h2>
+<p>Example Dataset (sorted by IMDB rating)<br>
+Movies with ratings: [8.2, 6.5, 9.0, 7.3, 8.7]</p>
+<p><strong>Step 1: Divide</strong><br>
+Choose pivot (last element) &rarr; pivot = 8.7<br>
+&bull; Elements &le; 8.7 &rarr; [8.2, 6.5, 7.3]<br>
+&bull; Elements > 8.7 &rarr; [9.0]<br>
+Array after partition: [8.2, 6.5, 7.3, 8.7, 9.0]</p>
+<p><strong>Step 2: Recursively Apply Quick Sort</strong><br>
+Left subarray: [8.2, 6.5, 7.3]<br>
+Pivot = 7.3 &rarr; Partition &rarr; [6.5, 7.3, 8.2]<br>
+Right subarray: [9.0] (already sorted)</p>
+<p><strong>Step 3: Combine Results</strong><br>
+Final sorted array by IMDB rating &rarr; [6.5, 7.3, 8.2, 8.7, 9.0]</p>
+<p><strong>Final Output</strong><br>
+Movies sorted efficiently based on user-selected parameter (IMDB rating in this case): [6.5, 7.3, 8.2, 8.7, 9.0]</p>
+
+<h2>Conclusion:</h2>
+<p>Quick Sort is an efficient and memory-friendly algorithm ideal for sorting large movie datasets based on user preferences like rating, release year, or popularity. By using Quick Sort, StreamFlix can ensure fast and responsive recommendations even during peak hours, improving performance and user experience.</p>
+
+<div class="github-link">
+    GitHub Repository: <a href="https://github.com/Harshit000-byte/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git">https://github.com/Harshit000-byte/DAA-ASSIGNMENTS-124B1F017-HARSHIT-PANDITA.git</a>
+</div>
+
+</body>
+</html>
