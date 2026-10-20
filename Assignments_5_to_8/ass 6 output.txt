@@ -1,0 +1,18 @@
+DISASTER RELIEF RESOURCE ALLOCATION - 0/1 KNAPSACK
+Enter number of item types and truck capacity (kg): Enter each item: name weight_kg utility perishable(1=yes, 0=no)
+
+OPTIMAL LOAD
+---------------------------------------------
+Medicine | Weight: 5 kg | Utility: 100 | Perishable/priority
+Food | Weight: 8 kg | Utility: 80 | Perishable/priority
+Water | Weight: 6 kg | Utility: 70 | Perishable/priority
+---------------------------------------------
+Total weight: 19 kg / 20 kg
+Maximum utility: 250
+
+APPROACH COMPARISON
+Brute force: O(2^N) time; tests every subset.
+Dynamic programming: O(N * W) time and O(N * W) memory.
+Greedy by utility/weight: usually O(N log N), but is not guaranteed optimal for 0/1 knapsack.
+Perishable items are identified for planning; utility scores should include urgency to prioritize them.
+For multiple trucks, solve as a multi-knapsack/assignment problem; for changing supplies, rerun DP after updates.
